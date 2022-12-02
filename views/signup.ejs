@@ -1,0 +1,59 @@
+<%- include('partials/header.ejs') -%>
+    <body>
+        <!-- Navigation-->
+        <%- include('partials/nav.ejs') -%>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/login.png')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>Signup</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="my-5">
+                            <form action="/createData" method="post">
+                                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                                    <div class="form-floating">
+                                        <input class="form-control" name="firstName" type="text" placeholder="User Name" />
+                                        <label for="username">User Name</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input class="form-control" name="password" type="password" placeholder="Password"/>
+                                        <label for="password">Password</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input class="form-control" name="repeatPassword" type="password" placeholder="Re-enter Password" />
+                                        <label for="password">Repeat Password</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <select class="dropdown" name="type" id="type">
+                                            <option value="driver">Driver</option>
+                                            <option value="admin">Admin</option>
+                                            <option value="examiner">Examiner</option>
+                                        </select>
+                                    </div>
+                                    <br />
+                                    <% if (showErrorMsg) { %>
+                                        <p style="color: red; text-align: center;">Passwords did not Match</p>
+                                    <% } %>
+                                    <input class="btn btn-primary text-uppercase" id="sbmtBtn" type="submit"/>
+                                </form>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer-->
+    <%- include("partials/footer") -%> <%- include("partials/scripts") -%>
+    </body>
+</html>

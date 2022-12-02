@@ -1,0 +1,107 @@
+<%- include('partials/header.ejs') -%>
+    <body>
+        <!-- Navigation-->
+        <%- include('partials/nav.ejs') -%>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/g2_test.png')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>G2 DrivingTest</h1>
+                            <h2 class="subheading">G2 DrivingTest Kiosk</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="#!">DriveTest Center</a>
+                                on August 24, 2022
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <form method="POST" action="/updatePersonalInfo">
+                            <div class="mainContainer">
+                                <h2 for="pdetails"><b>Personal Details</b></h2>
+                                <input type="hidden" name="id" value= <%= personalInfo._id %> />
+                                <% if (personalInfo.disablePersonalInfoFields) { %>
+                                <div class="container-col">
+                                    <div class="container-row">
+                                        <!-- <label for="fname"><b>First Name</b></label> -->
+                                        <input type="text" placeholder="Enter Firstname" name="fname" value=<%= personalInfo.firstName %> disabled>
+                                    </div>
+                                    <div class="container-row">
+                                        <!-- <label for="lname"><b>Last Name</b></label> -->
+                                        <input type="text" placeholder="Enter Lastname" name="lname" value=<%= personalInfo.lastName %> disabled>
+                                    </div>
+                                    <div class="container-row">
+                                        <!-- <label for="lnumber"><b>License Number</b></label> -->
+                                        <input type="hidden" placeholder="Enter License" name="lnumber" value=<%= personalInfo.licenseNumber %> disabled>
+                                    </div>
+                                    <div class="container-row">
+                                        <!-- <label for="age"><b>Age</b></label> -->
+                                        <input type="number" placeholder="Age" name="age" value=<%= personalInfo.age %> disabled>
+                                    </div>
+                                    <!-- <div class="container-row">
+                                        <label for="dob"><b>Date Of Birth</b></label>
+                                        <input type="date" name="dob" required>
+                                    </div> -->
+                                </div>
+                                <% } else { %>
+                                
+                                <div class="container-col">
+                                    <div class="container-row">
+                                        <!-- <label for="fname"><b>First Name</b></label> -->
+                                        <input type="text" placeholder="Enter Firstname" name="fname" value=<%= personalInfo.firstName %> >
+                                    </div>
+                                    <div class="container-row">
+                                        <!-- <label for="lname"><b>Last Name</b></label> -->
+                                        <input type="text" placeholder="Enter Lastname" name="lname" value=<%= personalInfo.lastName %> >
+                                    </div>
+                                    <div class="container-row">
+                                        <!-- <label for="lnumber"><b>License Number</b></label> -->
+                                        <input type="text" placeholder="Enter License" name="lnumber" value=<%= personalInfo.licenseNumber %> >
+                                    </div>
+                                    <div class="container-row">
+                                        <!-- <label for="age"><b>Age</b></label> -->
+                                        <input type="number" placeholder="Age" name="age" value=<%= personalInfo.age %> >
+                                    </div>
+                                </div>
+                                <% } %>
+                                <h2 for="cdetails"><b>Car Details</b></h2>
+
+                                <div class="container-col"> 
+                                    <div class="container-row">  
+                                        <label for="iemake"><b>IE Make</b></label>
+                                        <input type="text" placeholder="Enter IE" name="iemake" value=<%= personalInfo.carDetails.make %> >
+                                    </div>
+                                    <div class="container-row">
+                                        <label for="model"><b>Car model</b></label>
+                                        <input type="text" placeholder="Car model" name="model" value=<%= personalInfo.carDetails.model %> >
+                                    </div>
+                                    <div class="container-row">
+                                        <label for="year"><b>Year</b></label>
+                                        <input type="text" placeholder="Year" name="year" value=<%= personalInfo.carDetails.year %> >
+                                    </div>
+                                    <div class="container-row">
+                                        <label for="pnumber"><b>Plate Number</b></label>
+                                        <input type="text" placeholder="Plate Number" name="pnumber" value=<%= personalInfo.carDetails.plateNo %> >
+                                    </div>
+                                </div>
+                                <!-- Submit Button-->
+                                <input class="btn btn-primary text-uppercase" id="submitButton" type="submit"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </article>
+       <!-- Footer-->
+    <%- include("partials/footer") -%> <%- include("partials/scripts") -%>
+    </body>
+</html>

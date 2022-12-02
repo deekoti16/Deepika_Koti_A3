@@ -1,0 +1,96 @@
+<%- include('partials/header.ejs') -%>
+    <body>
+        <!-- Navigation-->
+        <%- include('partials/nav.ejs') -%>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/g_test.jpg')">
+            <!-- <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <form method="POST" action="/fetchpersonalInfo">
+                                <input type="text" placeholder="Enter License" name="lnumber" required>
+                                <% if (personalInfo.userNotFound) { %>
+                                    <div class="errorMsg">User not found</div>
+                                   <% } %>
+                                <div class="btn">
+                                    <button class="button" type="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <!-- <% if (personalInfo.firstName) { %> -->
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p> -->
+                        <form method="POST" action="/updatePersonalInfo">
+                          <div class="mainContainer">
+                            <h2 for="pdetails"><b>Personal Details</b></h2>
+                            <div class="container-col">
+                                <div class="container-row">
+                                    <input type="hidden" name="id" value= <%= personalInfo._id %> />
+                                </div>
+                                <div class="container-row">
+                                    <input type="hidden" name="fname" value=<%= personalInfo.firstName %> >
+                                </div>
+                                <div class="container-row">
+                                    <input type="hidden" name="lname" value=<%= personalInfo.lastName %> >
+                                </div>
+                                <div class="container-row">
+                                    <input type="text" name="fname" value=<%= personalInfo.firstName %> disabled>
+                                </div>
+                                <div class="container-row">
+                                    <input type="text" name="lname" value=<%= personalInfo.lastName %> disabled>
+                                </div>
+                                <div class="container-row">
+                                    <input type="hidden" name="lnumber" value=<%= personalInfo.licenseNumber %> disabled>
+                                </div>
+                                <div class="container-row">
+                                    <input type="text" name="age" value=<%= personalInfo.age %> disabled>
+                                </div>
+                                <!-- <div class="container-row">
+                                    <input type="text" name="dob" value=<%= personalInfo.dob %> disabled>
+                                </div> -->
+                            </div>
+
+                            <h2 for="cdetails"><b>Car Details</b></h2>
+
+                            <div class="container-col"> 
+                                
+                                <div class="container-row">
+                                    <input type="hidden" name="id" value=<%= personalInfo._id %> >
+                                  </div>
+                                <div class="container-row">  
+                                    <input type="text" name="iemake" value=<%= personalInfo.carDetails.make %> required>
+                                </div>
+                                <div class="container-row">
+                                    <input type="text" name="model" value=<%= personalInfo.carDetails.model %> required>
+                                </div>
+                                <div class="container-row">
+                                    <input type="text" name="year" value=<%= personalInfo.carDetails.year %> required>
+                                </div>
+                                <div class="container-row">
+                                    <input type="text" name="pnumber" value=<%= personalInfo.carDetails.plateNo %> required>
+                                </div>
+                            </div>
+                            <!-- Submit Button-->
+                            <input class="btn btn-primary text-uppercase" id="submitButton" type="submit" value="update"/>
+                        </div>
+                          </form>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </main>
+        <!-- Footer-->
+        <%- include("partials/footer") -%> <%- include("partials/scripts") -%>
+    </body>
+</html>

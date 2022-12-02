@@ -1,0 +1,46 @@
+<%- include('partials/header.ejs') -%>
+    <body>
+        <!-- Navigation-->
+        <%- include('partials/nav.ejs') -%>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/login.png')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>Login</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="my-5">
+                            <form action="/checkUser" method="POST">
+                                    <div class="form-floating">
+                                        <input class="form-control" name="username" type="text" placeholder="User Name" >
+                                        <label for="username">User name</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input class="form-control" name="password" type="password" placeholder="Password" >
+                                        <label for="password">Password</label>
+                                    </div>
+                                    <br />
+                                    <% if (showErrorMsg) { %>
+                                    <p style="color: aliceblue; text-align: center">Please <a href="signup" style="color: aqua;">register</a> yourself</p>
+                                    <% } %>
+                                    <input class="btn btn-primary text-uppercase" id="sbmtBtn" type="submit"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer-->
+    <%- include("partials/footer") -%> <%- include("partials/scripts") -%>
+    </body>
+</html>
